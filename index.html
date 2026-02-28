@@ -1,16 +1,47 @@
-
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MockupStudio</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Create stunning mockups from your screenshots instantly with MockupStudio."
+    />
+    <meta
+      name="keywords"
+      content="mockup, screenshot, design, presentation, tool"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MockupStudio" />
+    <meta
+      property="og:description"
+      content="Create stunning mockups from your screenshots instantly with MockupStudio."
+    />
+    <meta property="og:image" content="/preview.jpeg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MockupStudio" />
+    <meta
+      name="twitter:description"
+      content="Create stunning mockups from your screenshots instantly with MockupStudio."
+    />
+    <meta name="twitter:image" content="/preview.jpeg" />
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
     <style>
       body {
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         background-color: #09090b; /* zinc-950 */
         color: #e4e4e7; /* zinc-200 */
         overflow: hidden;
@@ -21,16 +52,16 @@
         height: 6px;
       }
       ::-webkit-scrollbar-track {
-        background: transparent; 
+        background: transparent;
       }
       ::-webkit-scrollbar-thumb {
-        background: #27272a; 
+        background: #27272a;
         border-radius: 3px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #3f3f46; 
+        background: #3f3f46;
       }
-      
+
       .gradient-text {
         background-clip: text;
         -webkit-background-clip: text;
@@ -38,69 +69,156 @@
       }
 
       /* --- ANIMATIONS (IN) --- */
-      
-      @keyframes shake {
-        0%, 100% { transform: translateX(0); }
-        10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
-        20%, 40%, 60%, 80% { transform: translateX(4px); }
-      }
-      .anim-shake { animation-name: shake; }
 
-      @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
-      .anim-fade-in { animation-name: fade-in; animation-timing-function: ease-out; animation-fill-mode: both; }
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+          transform: translateX(-4px);
+        }
+        20%,
+        40%,
+        60%,
+        80% {
+          transform: translateX(4px);
+        }
+      }
+      .anim-shake {
+        animation-name: shake;
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .anim-fade-in {
+        animation-name: fade-in;
+        animation-timing-function: ease-out;
+        animation-fill-mode: both;
+      }
 
       @keyframes zoom-in-up {
-        0% { opacity: 0; transform: scale(0.8) translateY(20px); }
-        100% { opacity: 1; transform: scale(1) translateY(0); }
+        0% {
+          opacity: 0;
+          transform: scale(0.8) translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
       }
-      .anim-zoom-in { animation-name: zoom-in-up; animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); animation-fill-mode: both; }
+      .anim-zoom-in {
+        animation-name: zoom-in-up;
+        animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+        animation-fill-mode: both;
+      }
 
       @keyframes slide-up {
-        0% { opacity: 0; transform: translateY(40px); }
-        100% { opacity: 1; transform: translateY(0); }
+        0% {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
-      .anim-slide-up { animation-name: slide-up; animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); animation-fill-mode: both; }
-      
+      .anim-slide-up {
+        animation-name: slide-up;
+        animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+        animation-fill-mode: both;
+      }
+
       @keyframes pulse-scale {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
       }
-      .anim-pulse { animation-name: pulse-scale; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+      .anim-pulse {
+        animation-name: pulse-scale;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+      }
 
       /* --- ANIMATIONS (OUT) --- */
 
-      @keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
-      .anim-fade-out { animation-name: fade-out; animation-timing-function: ease-in; animation-fill-mode: both; }
+      @keyframes fade-out {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+      .anim-fade-out {
+        animation-name: fade-out;
+        animation-timing-function: ease-in;
+        animation-fill-mode: both;
+      }
 
       @keyframes zoom-out {
-        0% { opacity: 1; transform: scale(1); }
-        100% { opacity: 0; transform: scale(0.8); }
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
       }
-      .anim-zoom-out { animation-name: zoom-out; animation-timing-function: ease-in; animation-fill-mode: both; }
+      .anim-zoom-out {
+        animation-name: zoom-out;
+        animation-timing-function: ease-in;
+        animation-fill-mode: both;
+      }
 
       @keyframes slide-down {
-        0% { opacity: 1; transform: translateY(0); }
-        100% { opacity: 0; transform: translateY(40px); }
+        0% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(40px);
+        }
       }
-      .anim-slide-down { animation-name: slide-down; animation-timing-function: ease-in; animation-fill-mode: both; }
-
+      .anim-slide-down {
+        animation-name: slide-down;
+        animation-timing-function: ease-in;
+        animation-fill-mode: both;
+      }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "html-to-image": "https://esm.sh/html-to-image@1.11.11"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+    <script type="importmap">
+      {
+        "imports": {
+          "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+          "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+          "react/": "https://esm.sh/react@^19.2.3/",
+          "react": "https://esm.sh/react@^19.2.3",
+          "html-to-image": "https://esm.sh/html-to-image@1.11.11"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
   <body>
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
