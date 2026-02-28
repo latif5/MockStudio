@@ -1,20 +1,61 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+  <img src="public/preview.jpeg" alt="MockupStudio Preview" width="600" style="border-radius: 12px; margin-bottom: 20px;" />
+  
+  <h1>MockupStudio</h1>
+  <p><strong>Create stunning mockups from your screenshots instantly with MockupStudio.</strong></p>
 </div>
 
-# Run and deploy your AI Studio app
+## ✨ Features
 
-This contains everything you need to run your app locally.
+- **Instant Mockups**: Turn any screenshot into a beautiful, presentation-ready device mockup.
+- **Beautiful Presets**: Apply modern, sleek background aesthetics with a single click.
+- **Export Options**: Export your finalized mockups as high-quality images ready to be shared.
+- **Built for Speed**: Fully client-side application running seamlessly in your browser.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1vCnYCVLVy540hNk8Ozt2SXcNO9xCTSnS
+## 🚀 Tech Stack
 
-## Run Locally
+- **React** 19 - UI Library
+- **Tailwind CSS** - Styling
+- **Vite** - Build Tool
+- **html-to-image** - Exporting elements to image
+- **Lucide React** - Icons
 
-**Prerequisites:**  Node.js
+## 💻 Getting Started
 
+### Prerequisites
+
+- Node.js installed
+
+### Installation
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+
+   ```bash
+   npm install
+   ```
+
+2. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+3. Open your browser and navigate to `http://localhost:5173` (or the port specified by Vite).
+
+### Building for Production
+
+To create a production build, run:
+
+```bash
+npm run build
+```
+
+You can preview the built files using:
+
+```bash
+npm run preview
+```
+
+## 📄 License
+
+This project is created for personal use and portfolio building.
